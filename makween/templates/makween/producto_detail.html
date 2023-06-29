@@ -1,0 +1,31 @@
+{% extends 'makween/base.html' %}
+
+
+{% block content %}
+<style>
+  .titulo {
+ height: 40px;
+ background-color: #EF0C0C;
+ width: 100%;
+ text-align: center;
+ color: whitesmoke;
+ font-size: 18px;
+ font-weight: bold;
+ line-height: 20px;
+ margin-bottom: 20px;
+}
+</style>
+<div class="titulo">
+  <h2>Detalles del Producto</h2>
+</div>
+  <p><strong>Nombre:</strong> {{ producto.nombre }}</p>
+  <p><strong>Descripción:</strong> {{ producto.descripcion }}</p>
+  <p><strong>Precio:</strong> {{ producto.precio }}</p>
+  <p><strong>Stock:</strong> {{ producto.stock }}</p>
+  <a href="{% url 'producto_update' pk=producto.pk %}">Editar</a>
+  <a href="{% url 'producto_delete' pk=producto.pk %}">Eliminar</a>
+  <form action="{% url 'base' %}">
+    <button type="submit">Volver</button>
+</form>
+
+{% endblock %}

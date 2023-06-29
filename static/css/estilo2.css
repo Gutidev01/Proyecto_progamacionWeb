@@ -1,0 +1,228 @@
+ /* Estilo para la página */
+ * {
+    box-sizing: border-box;
+    }
+  
+body {
+    background-color: white;
+    margin: 0;
+    padding: 0;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 16px;
+    color: black;
+    }
+
+/* Estilo para el menú */
+ .navbar {
+    background-color: #2d2d2d;
+   }
+  
+   .navbar-brand img {
+    height: 100px;
+    width: 100%;
+   }
+  
+   .navbar-nav .nav-link {
+    color: white;
+    font-size: 16px;
+    text-transform: uppercase;
+    padding: 10px 15px;
+   }
+  
+   .navbar-nav .nav-link:hover,
+   .navbar-nav .nav-link:focus {
+     background-color: #EF0C0C;
+   }
+  
+   /* Estilos para el footer*/
+  footer {
+    background-color: #2d2d2d;
+    color: #fff;
+    padding: 20px 0;
+    margin-top: 20px;
+  }
+  
+  footer .container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  footer img {
+    width: 125px;
+  }
+  
+  footer ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+  }
+  
+  footer ul li {
+    margin-right: 10px;
+  }
+  
+  footer ul li a {
+    color: white;
+    transition: all 0.3s ease;
+  }
+  
+  footer ul li i:hover {
+    color: #EF0C0C;
+  }
+  
+  footer .footer-pages {
+    text-align: center;
+  }
+  
+  footer .footer-pages ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  footer .footer-pages a {
+    color: white;
+    transition: all 0.3s ease;
+  }
+  
+  footer .footer-pages a:hover {
+    color: #EF0C0C;
+  }
+  
+  @media (max-width: 1280px) {
+    footer .container {
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+  }
+   /* Estilos para página sucursal*/
+
+.titulo {
+    height: 40px;
+    background-color: #EF0C0C;
+    width: 100%;
+    text-align: center;
+    color: whitesmoke;
+    font-size: 18px;
+    font-weight: bold;
+    line-height: 20px;
+}
+
+.imagen {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.imagen img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Estilos para mapa y columnas*/
+#map {
+	height: 400px;
+	width: 100%;
+}
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.columna {
+  width: 100%;
+  max-width: 33.33%;
+  box-sizing: border-box;
+  padding: 20px;
+}
+
+.titulo-columna {
+  text-transform: uppercase;
+  color: #EF0C0C;
+  text-align: center;
+  font-weight: bold;
+}
+
+.columna p {
+  text-align: center;
+  color: black;
+}
+
+.contenedor-imagen {
+  display: flex;
+  justify-content: center;
+}
+
+.imagen-pequena {
+  width: 50px;
+  height: 50px;
+}
+
+@media (max-width: 600px) {
+  .columna {
+    max-width: 100%;
+  }
+}
+
+/* Estilos para el formulario*/
+form {
+  max-width: 60%;
+  margin: 0 auto;
+  background-color: whitesmoke;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+form h3 {
+  color: #EF0C0C;
+  font-weight: bold;
+  text-align: center;
+}
+
+form label {
+  color: black;
+  font-weight: bold;
+}
+
+form input[type="text"],
+form input[type="email"],
+form input[type="tel"],
+form textarea,
+form select {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.center-button{
+  justify-content: center;
+  display: flex;
+}
+
+form button[type="submit"] {
+  background-color:#EF0C0C;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+
+form button[type="submit"]:disabled {
+  background-color: lightgray;
+  cursor: not-allowed;
+}
+
+.cont-btn{
+  justify-content: center;
+  display: flex;
+}

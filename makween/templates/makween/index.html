@@ -1,0 +1,197 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Taller Mecánico Rayo Makween</title>
+    <!-- CDN para bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" 
+    rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.6.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="{% static 'css/estilo.css'%}">
+    <link rel="icon" href="{% static 'img/RMK_LOGO_3.png'%}">
+</head>
+<body>
+  <div class="user-login">
+    {% if user.is_authenticated %}
+    <!-- Si el usuario ya ha iniciado sesión, muestra su nombre y un enlace para cerrar sesión -->
+    <p><b>Bienvenido, {{ user.username }}!   </b></p> <a href="{% url 'base' %}">Gestión de productos</a>
+    <a href="{% url 'logout' %}">Cerrar sesión</a>
+  {% else %}
+    <!-- Si el usuario no ha iniciado sesión, muestra un enlace para iniciar sesión -->
+    <a href="{% url 'login' %}">Iniciar sesión</a>
+  {% endif %}
+  </div>
+    <!-- Menú -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="{% url 'index' %}"><img src="{% static 'img/RMAKWEEN_LOGO_2.png'%}" alt="Logo"></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" 
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="{% url 'index' %}">inicio</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'galeria' %}">galería</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'mision-vision' %}">sobre nosotros</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'sucursal' %}">sucursal</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'formulario' %}">Contactanos</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>    
+<!-- Carousel -->
+      <div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+          <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active" 
+          aria-current="true" aria-label="Slide 1"></button>
+          <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+          <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+          <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="3" aria-label="Slide 4"></button>
+          <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="4" aria-label="Slide 5"></button>
+        </div>
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img src="{% static 'img/carousel_1.jpg'%}" class="d-block w-100" alt="Imagen 1" height="500">
+          </div>
+          <div class="carousel-item">
+            <img src="{% static 'img/carousel_2.jpg'%}" class="d-block w-100" alt="Imagen 2" height="500">
+          </div>
+          <div class="carousel-item">
+            <img src="{% static 'img/carousel_3.jpg'%}" class="d-block w-100" alt="Imagen 3" height="500">
+          </div>
+          <div class="carousel-item">
+            <img src="{% static 'img/carousel_4.jpg'%}" class="d-block w-100" alt="Imagen 4" height="500">
+          </div>
+          <div class="carousel-item">
+            <img src="{% static 'img/carousel_5.jpg'%}" class="d-block w-100" alt="Imagen 5" height="500">
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Anterior</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Siguiente</span>
+        </button>
+      </div> 
+      <div class="titulo">
+        <h2>Conoce nuestros servicios</h2>
+      </div>
+<!-- Columnas con Contenido-->
+<div class="rectangulo">
+  <div class="rectangulo_imagen">
+    <img src="{% static 'img/Mantención-por-Kilometraje.jpg'%}" alt="Mantención Kilometraje">
+  </div>
+  <div class="rectangulo_contenido">
+    <h3 class="rectangulo_titulo">Mantención por kilometraje</h3>
+    <br>
+    <p class="rectangulo_texto">En nuestro taller mecánico, sabemos lo importante que es el mantenimiento regular para garantizar 
+    el correcto funcionamiento y la durabilidad de tu vehículo. Es por eso que ofrecemos el servicio de mantenimiento por kilometraje, 
+    el cual se enfoca en revisar y cambiar los componentes esenciales de tu auto según su uso en el tiempo. Elegir nuestro taller para 
+    realizar el mantenimiento por kilometraje de tu vehículo es una excelente opción, ya que contamos con un equipo de expertos, quienes 
+    te brindarán un servicio profesional y de calidad.</p>
+  </div>
+</div>
+<div class="rectangulo">
+  <div class="rectangulo_contenido">
+    <h3 class="rectangulo_titulo">Cambio de aceite y filtro</h3><br>
+    <p class="rectangulo_texto">El cambio de aceite es uno de los servicios de mantenimiento más importantes que puedes hacer para prolongar 
+    la vida útil de tu vehículo. En nuestro taller mecánico, ofrecemos un servicio de cambio de aceite rápido y eficiente, utilizando productos
+    de alta calidad y tecnología avanzada para asegurar un rendimiento óptimo de tu motor. Realiza tu cambio de aceite con nosotros y llevate
+    el filtro y su instalación GRATIS.</p>
+  </div>
+  <div class="rectangulo_imagen">
+    <img src="{% static 'img/Cambio-de-aceite.png'%}" alt="Cambio de aceite">
+  </div>
+</div>
+<div class="rectangulo">
+  <div class="rectangulo_imagen">
+    <img src="{% static 'img/reparaciones_electricas.png'%}" alt="Reparaciones Eléctricas Automóvil">
+  </div>
+  <div class="rectangulo_contenido">
+    <h3 class="rectangulo_titulo">Mantención y reparación del sistema electrónico</h3><br>
+    <p class="rectangulo_texto">En nuestro taller mecánico, comprendemos la importancia que tienen los sistemas electrónicos en el correcto 
+    funcionamiento de tu vehículo. Por esta razón, ofrecemos un servicio especializado de reparaciones electrónicas, el cual se enfoca en 
+    diagnosticar y solucionar cualquier problema relacionado con el sistema eléctrico y electrónico de tu auto. </p>
+  </div>
+</div>
+<div class="rectangulo">
+  <div class="rectangulo_contenido">
+    <h3 class="rectangulo_titulo">Mantención y reparación de suspensión y frenos</h3><br>
+    <p class="rectangulo_texto">La suspensión y el sistema de frenos son dos de las partes más importantes de cualquier vehículo, ya que aseguran
+      la estabilidad, seguridad y confortabilidad al conducir. En nuestro taller mecánico, ofrecemos un servicio especializado, el cual incluye
+      el diagnóstico, reparación y reemplazo de componentes esenciales de estos sistemas.</p>
+  </div>
+  <div class="rectangulo_imagen">
+    <img src="{% static 'img/Servicio-de-Frenos.jpg'%}" alt="Servicio de Frenos">
+  </div>
+</div>
+
+<!-- Footer -->
+<footer class="bg-dark text-light">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4">
+        <div class="d-flex align-items-center mb-3">
+          <img src="{% static 'img/RMK.png'%}" alt="Logo de Taller Mecánico Rayo Makween" class="mr-3" height="100">
+          <h5 class="mb-0">Taller Mecánico Rayo Makween</h5>
+        </div>
+        <ul class="list-inline mb-0 footer-social-icons">
+          <li class="list-inline-item">
+            <a href="https://web.facebook.com/TMRayoMakwenn" class="text-light" target="_blank">
+              <i class="bi bi-facebook"></i>
+            </a>
+          </li>
+          <li class="list-inline-item">
+            <a href="https://www.instagram.com/tmrmakween/" class="text-light" target="_blank">
+              <i class="bi bi-instagram"></i>
+            </a>
+          </li>
+          <li class="list-inline-item">
+            <a href="https://twitter.com/TMRMakween" class="text-light" target="_blank">
+              <i class="bi bi-twitter"></i>
+            </a>
+          </li>
+          <li class="list-inline-item">
+            <a href="mailto:tmrayomakween@gmail.com" class="text-light" target="_blank">
+              <i class="bi bi-envelope"></i>
+            </a>
+          </li>
+        </ul>
+      </div>
+      <div class="col-md-4 text-center">
+        <p class="mb-0">&copy; Taller Mecánico Rayo Makween. Todos los derechos reservados. 2023</p>
+        <p class="mb-0">Desarrollado por Jonathan Gutierrez & Michel Lacourt</p>
+      </div>
+      <div class="col-md-4 text-center text-md-end">
+        <ul class="list-unstyled footer-pages">
+          <li><a href="{% url 'index' %}">Inicio</a></li>
+          <li><a href="{% url 'galeria' %}">Galería</a></li>
+          <li><a href="{% url 'mision-vision' %}">Sobre nosotros</a></li>
+          <li><a href="{% url 'sucursal' %}">Sucursal</a></li>
+          <li><a href="{% url 'formulario' %}">Contáctanos</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</footer>
+    <!-- CDN JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" 
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+</body>
+</html>

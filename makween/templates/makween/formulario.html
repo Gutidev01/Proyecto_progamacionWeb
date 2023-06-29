@@ -1,0 +1,204 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Taller Mecánico Rayo Makween | Contáctanos</title>
+    <!-- CDN para bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" 
+    rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.6.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="{% static 'css/estilo2.css'%}">
+    <link rel="icon" href="{% static 'img/RMK_LOGO_3.png'%}">
+</head>
+<body>
+  <div class="user-login">
+    {% if user.is_authenticated %}
+    <!-- Si el usuario ya ha iniciado sesión, muestra su nombre y un enlace para cerrar sesión -->
+    <p><b>Bienvenido, {{ user.username }}!   </b></p> <a href="{% url 'base' %}">Gestión de productos</a>
+    <a href="{% url 'logout' %}">Cerrar sesión</a>
+  {% else %}
+    <!-- Si el usuario no ha iniciado sesión, muestra un enlace para iniciar sesión -->
+    <a href="{% url 'login' %}">Iniciar sesión</a>
+  {% endif %}
+  </div>
+    <!-- Menú -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="{% url 'index' %}"><img src="{% static 'img/RMAKWEEN_LOGO_2.png'%}" alt="Logo"></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" 
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'index' %}">inicio</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'galeria' %}">galería</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'mision-vision' %}">sobre nosotros</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'sucursal' %}">sucursal</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="{% url 'formulario' %}">Contactanos</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>    
+<!-- Formulario -->
+<form id="formulario">
+    <h3>Contáctanos</h3>
+    <label for="nombre">Nombre:</label>
+    <input type="text" id="nombre" pattern="[A-Za-zñÑáéíóúÁÉÍÓÚ\s]+" required>
+  
+    <label for="apellido-paterno">Apellido Paterno:</label>
+    <input type="text" id="apellido-paterno" pattern="[A-Za-zñÑáéíóúÁÉÍÓÚ\s]+" required>
+  
+    <label for="apellido-materno">Apellido Materno:</label>
+    <input type="text" id="apellido-materno" pattern="[A-Za-zñÑáéíóúÁÉÍÓÚ\s]+" required>
+  
+    <label for="correo">Correo:</label>
+    <input type="email" id="correo" required>
+  
+    <label for="telefono">Teléfono:</label>
+    <input type="tel" id="telefono" pattern="[0-9]{9}" required>
+  
+    <label for="rut">RUT:</label>
+    <input type="text" id="rut" pattern="\d{1,8}-[\d|kK]{1}" required>
+  
+    <label>Género:</label>
+    <input type="radio" id="masculino" name="genero" value="masculino" required>
+    <label for="masculino">Masculino</label>
+    <input type="radio" id="femenino" name="genero" value="femenino" required>
+    <label for="femenino">Femenino</label>
+    <input type="radio" id="nob" name="genero" value="nobinario" required>
+    <label for="femenino">No binario</label>
+    <br>
+    <label for="direccion">Dirección:</label>
+    <input type="text" id="direccion" required>
+  
+    <label for="region">Región:</label>
+    <select id="region" required>
+      <option value="" disabled selected>Seleccione una región</option>
+      <option value="region1">Región de Arica y Parinacota</option>
+      <option value="region2">Región de Tarapacá</option>
+      <option value="region3">Región de Antofagasta</option>
+      <option value="region4">Región de Atacama</option>
+      <option value="region5">Región de Coquimbo</option>
+      <option value="region6">Región de Valparaíso</option>
+      <option value="region7">Región Metropolitana de Santiago</option>
+      <option value="region8">Región del Libertador General Bernardo O'Higgins (O'Higgins)</option>
+      <option value="region9">Región del Maule</option>
+      <option value="region10">Región de Ñuble</option>
+      <option value="region11">Región del Biobío</option>
+      <option value="region12">Región de La Araucanía</option>
+      <option value="region13">Región de Los Ríos</option>
+      <option value="region14">Región de Los Lagos</option>
+      <option value="region15">Región de Aysén del General Carlos Ibáñez del Campo (Aysén)</option>
+      <option value="region16">Región de Magallanes y de la Antártica Chilena</option>
+      
+    </select>
+    <h3>Datos del Automovil</h3>
+    <label for="marca-auto">Marca:</label>
+    <select id="marca-auto" required>
+      <option value="" disabled selected>Seleccione una marca</option>
+      <option value="Chevrolet">Chevrolet</option>
+      <option value="Suzuki">Suzuki</option>
+      <option value="Mazda">Mazda</option>
+      <option value="Ford">Ford</option>
+      <option value="Hyundai">Hyundai</option>
+      <option value="Renault">Renault</option>
+      <option value="MG">MG</option>
+      <option value="Toyota">Toyota</option>
+      <option value="Otros">Otros</option>
+    </select>
+  
+    <label for="año">Año:</label>
+    <select id="año" required>
+      <option value="" disabled selected>Seleccione un año</option>
+      <option value="2010">2010</option>
+      <option value="2011">2011</option>
+      <option value="2012">2012</option>
+      <option value="2013">2013</option>
+      <option value="2014">2014</option>
+      <option value="2015">2015</option>
+      <option value="2016">2016</option>
+      <option value="2017">2017</option>
+      <option value="2018">2018</option>
+      <option value="2019">2019</option>
+      <option value="2020">2020</option>
+      <option value="2021">2021</option>
+      <option value="2022">2022</option>
+    </select>
+    <label for="modelo">Modelo:</label>
+    <input type="text" id="modelo" required>
+  
+    <label for="comentario">¿En que podemos ayudarte?:</label>
+    <textarea id="comentario" rows="4" required></textarea>
+    <div class="cont-btn">
+        <button type="submit" id="enviar">Enviar</button>
+    </div>
+    <script src="{% static 'js/validacion.js'%}"></script>    
+</form>
+
+<!-- Footer -->
+<footer class="bg-dark text-light">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4">
+        <div class="d-flex align-items-center mb-3">
+          <img src="{% static 'img/RMK.png'%}" alt="Logo de Taller Mecánico Rayo Makween" class="mr-3" height="100">
+          <h5 class="mb-0">Taller Mecánico Rayo Makween</h5>
+        </div>
+        <ul class="list-inline mb-0 footer-social-icons">
+          <li class="list-inline-item">
+            <a href="https://web.facebook.com/TMRayoMakwenn" class="text-light" target="_blank">
+              <i class="bi bi-facebook"></i>
+            </a>
+          </li>
+          <li class="list-inline-item">
+            <a href="https://www.instagram.com/tmrmakween/" class="text-light" target="_blank">
+              <i class="bi bi-instagram"></i>
+            </a>
+          </li>
+          <li class="list-inline-item">
+            <a href="https://twitter.com/TMRMakween" class="text-light" target="_blank">
+              <i class="bi bi-twitter"></i>
+            </a>
+          </li>
+          <li class="list-inline-item">
+            <a href="mailto:tmrayomakween@gmail.com" class="text-light" target="_blank">
+              <i class="bi bi-envelope"></i>
+            </a>
+          </li>
+        </ul>
+      </div>
+      <div class="col-md-4 text-center">
+        <p class="mb-0">&copy; Taller Mecánico Rayo Makween. Todos los derechos reservados. 2023</p>
+        <p class="mb-0">Desarrollado por Jonathan Gutierrez & Michel Lacourt</p>
+      </div>
+      <div class="col-md-4 text-center text-md-end">
+        <ul class="list-unstyled footer-pages">
+          <li><a href="{% url 'index' %}">Inicio</a></li>
+          <li><a href="{% url 'galeria' %}">Galería</a></li>
+          <li><a href="{% url 'mision-vision' %}">Sobre nosotros</a></li>
+          <li><a href="{% url 'sucursal' %}">Sucursal</a></li>
+          <li><a href="{% url 'formulario' %}">Contáctanos</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</footer>
+    <!-- CDN JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" 
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+</body>
+</html>

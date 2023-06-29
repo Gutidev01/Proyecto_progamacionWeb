@@ -1,0 +1,169 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Taller Mecánico Rayo Makween | Galería</title>
+    <!-- CDN para bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" 
+    rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.6.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="{% static 'css/estilo.css'%}">
+    <link rel="icon" href="{% static 'img/RMK_LOGO_3.png'%}">
+</head>
+<body>
+  <div class="user-login">
+    {% if user.is_authenticated %}
+    <!-- Si el usuario ya ha iniciado sesión, muestra su nombre y un enlace para cerrar sesión -->
+    <p><b>Bienvenido, {{ user.username }}!   </b></p> <a href="{% url 'base' %}">Gestión de productos</a>
+    <a href="{% url 'logout' %}">Cerrar sesión</a>
+  {% else %}
+    <!-- Si el usuario no ha iniciado sesión, muestra un enlace para iniciar sesión -->
+    <a href="{% url 'login' %}">Iniciar sesión</a>
+  {% endif %}
+  </div>
+     <!-- Menú -->
+     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="{% url 'index' %}"><img src="{% static 'img/RMAKWEEN_LOGO_2.png'%}" alt="Logo"></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" 
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'index' %}">inicio</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active"  aria-current="page" href="{% url 'galeria' %}">galería</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'mision-vision' %}">sobre nosotros</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'sucursal' %}">sucursal</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'formulario' %}">Contactanos</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>    
+    <!-- GALERÍA -->
+    <section>
+      <div class="container">
+        <div class="box">
+          <img src="{% static 'img/galeria/imagen1.jpg' %}" alt="Cambio tubo de escape">
+          <div class="text">
+            <h3>Cambio de tubo de escape</h3>
+            <p>Se realiza el cambio de un tubo de escape a un modelo <strong>Chevrolet Rio5</strong> </p>
+          </div>
+        </div>
+        <div class="box">
+          <img src="{% static 'img/galeria/imagen2.jpg' %}" alt="Mantenimiento de motor">
+          <div class="text">
+            <h3>Manteniento de Motor</h3>
+            <p>Realizacion de Mantemiento al Motor de un vehiculo modelo <strong> Hyundai Accent</strong> </p>
+          </div>
+        </div>
+        <div class="box">
+          <img src="{% static 'img/galeria/Imagen3.jpg' %}" alt="Mantenimiento Completo">
+          <div class="text">
+            <h3>Mantenimiento Completo</h3>
+            <p>Se realiza Mantencion del vehiculo en su totalidad Modelo <strong>Nissan v16</strong></p>
+          </div>
+        </div>
+        <div class="box">
+          <img src="{% static 'img/galeria/imagen4.jpg' %}" alt="Reparacion Pintura">
+          <div class="text">
+            <h3>Reparacion de pintura </h3>
+            <p>Se repara la pintura del vehiculo modelo <strong>Chevrolet spark </strong> </p>
+          </div>
+        </div>
+        <div class="box">
+          <img src="{% static 'img/galeria/imagen5.jpg' %}" alt="hyundai santa fe cambio de aceite">
+          <div class="text">
+            <h3>Cambio de Aceite</h3>
+            <p>Se realiza el cambio de Aceite a un camioneta modelo <strong>Hyundai Santa fé</strong></p>
+          </div>
+        </div>
+        <div class="box">
+          <img src="{% static 'img/galeria/imagen6.jpg' %}" alt="Cambio de discos">
+          <div class="text">
+            <h3>Cambio de discos</h3>
+            <p>Discos dañados de neumaticos se cambian por nuevos al vehiculo modelo <strong>Toyota Yaris</strong></p>
+          </div>
+        </div>
+        <div class="box">
+          <img src="{% static 'img/galeria/imagen7.jpg' %}" alt="Revisiones de ruidos extraños">
+          <div class="text">
+            <h3>Revision de Ruido extraño</h3>
+            <p>El vehiculo se encontraba con diferentes fallas en el motor se realiza revision y reparacion en el modelo <strong>Kia Morning</strong></p>
+          </div>
+        </div>
+        <div class="box">
+          <img src="{% static 'img/galeria/imagen8.jpg' %}" alt="Cambio de neumaticos">
+          <div class="text">
+            <h3>Cambio de Neumáticos</h3>
+            <p>Neumáticos en mal estado son cambiados por nuevos en modelo <strong>Mazda 3</strong></p>
+          </div>
+        </div>
+      </div>
+    </section>    
+<!-- Footer -->
+<footer class="bg-dark text-light">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4">
+        <div class="d-flex align-items-center mb-3">
+          <img src="{% static 'img/RMK.png'%}" alt="Logo de Taller Mecánico Rayo Makween" class="mr-3" height="100">
+          <h5 class="mb-0">Taller Mecánico Rayo Makween</h5>
+        </div>
+        <ul class="list-inline mb-0 footer-social-icons">
+          <li class="list-inline-item">
+            <a href="https://web.facebook.com/TMRayoMakwenn" class="text-light" target="_blank">
+              <i class="bi bi-facebook"></i>
+            </a>
+          </li>
+          <li class="list-inline-item">
+            <a href="https://www.instagram.com/tmrmakween/" class="text-light" target="_blank">
+              <i class="bi bi-instagram"></i>
+            </a>
+          </li>
+          <li class="list-inline-item">
+            <a href="https://twitter.com/TMRMakween" class="text-light" target="_blank">
+              <i class="bi bi-twitter"></i>
+            </a>
+          </li>
+          <li class="list-inline-item">
+            <a href="mailto:tmrayomakween@gmail.com" class="text-light" target="_blank">
+              <i class="bi bi-envelope"></i>
+            </a>
+          </li>
+        </ul>
+      </div>
+      <div class="col-md-4 text-center">
+        <p class="mb-0">&copy; Taller Mecánico Rayo Makween. Todos los derechos reservados. 2023</p>
+        <p class="mb-0">Desarrollado por Jonathan Gutierrez & Michel Lacourt</p>
+      </div>
+      <div class="col-md-4 text-center text-md-end">
+        <ul class="list-unstyled footer-pages">
+          <li><a href="{% url 'index' %}">Inicio</a></li>
+          <li><a href="{% url 'galeria' %}">Galería</a></li>
+          <li><a href="{% url 'mision-vision' %}">Sobre nosotros</a></li>
+          <li><a href="{% url 'sucursal' %}">Sucursal</a></li>
+          <li><a href="{% url 'formulario' %}">Contáctanos</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</footer>
+    <!-- CDN JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" 
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+</body>
+</html>

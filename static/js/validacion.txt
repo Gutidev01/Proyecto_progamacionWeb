@@ -1,0 +1,125 @@
+
+function validarNombre() {
+    var nombreInput = document.getElementById('nombre');
+    var nombre = nombreInput.value.trim();
+    
+    var regex = /^[A-Za-zñÑáéíóúÁÉÍÓÚ\s]+$/;
+    
+    if (!regex.test(nombre)) {
+      mostrarError(nombreInput, 'El nombre no debe contener números o caracteres especiales');
+    } else {
+      mostrarExito(nombreInput);
+    }
+  }
+  
+  function validarApellidoPaterno() {
+    var apellidoPaternoInput = document.getElementById('apellido-paterno');
+    var apellidoPaterno = apellidoPaternoInput.value.trim();
+    
+    var regex = /^[A-Za-zñÑáéíóúÁÉÍÓÚ\s]+$/;
+    
+    if (!regex.test(apellidoPaterno)) {
+      mostrarError(apellidoPaternoInput, 'El apellido paterno no debe contener números o caracteres especiales');
+    } else {
+      mostrarExito(apellidoPaternoInput);
+    }
+  }
+  
+  // Función para validar el campo de apellido materno
+  function validarApellidoMaterno() {
+    var apellidoMaternoInput = document.getElementById('apellido-materno');
+    var apellidoMaterno = apellidoMaternoInput.value.trim();
+    
+    var regex = /^[A-Za-zñÑáéíóúÁÉÍÓÚ\s]+$/;
+    
+    if (!regex.test(apellidoMaterno)) {
+      mostrarError(apellidoMaternoInput, 'El apellido materno no debe contener números o caracteres especiales');
+    } else {
+      mostrarExito(apellidoMaternoInput);
+    }
+  }
+  
+  function mostrarError(elemento, mensaje) {
+    var errorDiv = document.createElement('div');
+    errorDiv.className = 'error';
+    errorDiv.textContent = mensaje;
+    
+    elemento.parentNode.insertBefore(errorDiv, elemento.nextSibling);
+    
+    elemento.classList.add('error-input');
+  }
+
+  function formatearRut(rut) {
+    rut = rut.replace(/[^\dkK]+/g, '');
+    rut = rut.replace(/^(\d{1,2})(\d{3})(\d{3})([\dkK])$/, '$1.$2.$3-$4');
+    return rut;
+  }
+  
+  function validarRut() {
+    var rutInput = document.getElementById('rut');
+    var rut = rutInput.value.trim();
+  
+    rut = formatearRut(rut);
+  
+    var regex = /^(\d{1,2})\.(\d{3})\.(\d{3})\-(\d|k|K)$/;
+  
+    if (!regex.test(rut)) {
+      mostrarError(rutInput, 'El RUT no tiene un formato válido');
+    } else {
+      mostrarExito(rutInput);
+      rutInput.value = rut;
+    }
+  }
+  
+  function mostrarExito(elemento) {
+    var errorDiv = elemento.nextElementSibling;
+    if (errorDiv && errorDiv.className === 'error') {
+      elemento.parentNode.removeChild(errorDiv);
+    }
+    elemento.classList.remove('error-input');
+    
+  }
+  function validarCorreo() {
+    var correoInput = document.getElementById('correo');
+    var correo = correoInput.value.trim();
+    
+    var regex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+    
+    if (!regex.test(correo)) {
+      mostrarError(correoInput, 'El correo electrónico no tiene un formato válido');
+    } else {
+      mostrarExito(correoInput);
+    }
+  }
+  
+
+  function validarFormulario(event) {
+    event.preventDefault();
+  
+    var formulario = document.getElementById('formulario');
+    var inputs = formulario.querySelectorAll('input, select, textarea');
+  
+    var camposIncompletos = false;
+  
+    for (var i = 0; i < inputs.length; i++) {
+      if (inputs[i].value.trim() === '') {
+        camposIncompletos = true;
+        mostrarError(inputs[i], 'Este campo es obligatorio');
+      } else {
+        mostrarExito(inputs[i]);
+      }
+    }
+  
+    if (!camposIncompletos) {
+      formulario.submit();
+    }
+  }
+  
+  document.getElementById('correo').addEventListener('blur', validarCorreo);
+  document.getElementById('nombre').addEventListener('blur', validarNombre);
+  document.getElementById('apellido-paterno').addEventListener('blur', validarApellidoPaterno);
+  document.getElementById('apellido-materno').addEventListener('blur', validarApellidoMaterno);
+  document.getElementById('rut').addEventListener('blur', validarRut);
+  document.getElementById('formulario').addEventListener('submit', validarFormulario);
+
+  

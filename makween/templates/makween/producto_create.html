@@ -1,0 +1,29 @@
+{% extends 'makween/base.html' %}
+
+{% block content %}
+<style>
+  .titulo {
+ height: 40px;
+ background-color: #EF0C0C;
+ width: 100%;
+ text-align: center;
+ color: whitesmoke;
+ font-size: 18px;
+ font-weight: bold;
+ line-height: 20px;
+ margin-bottom: 20px;
+}
+</style>
+  <div class="titulo">
+  <h2>Crear Nuevo Producto</h2>
+  </div>
+
+  <form method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Guardar</button>
+  </form>
+  <form action="{% url 'base' %}">
+    <button type="submit">Volver</button>
+</form>
+{% endblock %}
